@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100%  {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100%  {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+:root {
+    --cor-primaria: #221F1F;
+    --cor-secundaria: #B81D24;
+    --cor-terciaria: #F5F5F1;
+    --cor-secundaria-hover: #E50914;
+    --cor-terciaria-hover: #dbd9d9de;
+    --fonte-principal: "Montserrat", sans-serif;
+    --fonte-destaque: "Bebas Neue", sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cor-primaria);
+    color: var(--cor-terciaria);
+    box-sizing: border-box;
+}
+
+/* Split the screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    z-index: 3;
+}
+  
+  /* Control the left side */
+.left {
+    left: 0;
+    background-image: url(/img/bibsflixA.png);
+    background-size: cover;
+    text-align: end;
+    animation: slideLeft 1s 3s forwards;
+}
+  
+  /* Control the right side */
+.right {
+    right: 0;
+    background-image: url(/img/bibsflixB.png);
+    background-size: cover;
+    animation: slideRight 1s 3s forwards;
+}
+  
+.intro__titulo {
+    margin-top: 20%;
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-destaque);
+    font-size: 100px; 
+    text-decoration: double;
+    text-shadow: 3px 3px 3px #221F1F;
+    padding-top: 10%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    height: 10%;
+    width: 100%;
+    background-color: var(--cor-primaria);
+    padding-top: 8px;
+    padding-left: 26px;
+    z-index: 2;
+}
+
+.header__titulo {
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-destaque);
+    font-size: 36px; 
+    text-decoration: double;
+    text-shadow: 3px 3px 3px #221F1F; 
+
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    padding-right: 50px;
+}
+
+.header__navbar__links {
+    font-family: var(--fonte-principal);
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--cor-terciaria);
+}
+
+.header__navbar__links:hover {
+    transform:translateY(-5px);
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    text-shadow: 3px 3px 5px #858585;
+}
+.main {
+    height: auto;
+    padding-left: 20px;
+}
+
+.filmes__titulo, .series__titulo, .musica__titulo {
+    padding-top: 80px;
+    padding-bottom: 8px;
+    font-family: var(--fonte-principal);
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.filmes, .series, .musica {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow: auto;
+}
+
+
+.capas {
+    width: 200px;
+    height: 300px;
+    border: 8px inset #463f3f;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+}
+
+.container__capas {
+    position: relative;
+}
+
+.hovering {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color:var(--cor-primaria);
+    text-align: center;
+    transform: translate(center);
+    -ms-transform: translate(center);
+}
+
+.container__capas:hover img {
+    opacity: 0.4;
+}
+
+.container__capas:hover .hovering {
+    opacity: 0.8;
+}
+
+.container__capas:hover .hovering__texto .hovering__texto__sub {
+    opacity: 1;
+}
+
+.hovering__texto {
+    color: var(--cor-terciaria);
+    font-size: 21px;
+    padding-top: 50%;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-family: var(--fonte-principal);
+}
+
+.hovering__texto__sub {
+    color: var(--cor-terciaria);
+    font-size: 17px;
+    padding-top: 10%;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-family: var(--fonte-principal);
+}
+
+.hovering__texto__sub__sub {
+    color: var(--cor-terciaria);
+    font-size: 17px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+    font-family: var(--fonte-principal);
+}
+
+
+.footer {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    background-color: var(--cor-secundaria);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 50px;
+}
